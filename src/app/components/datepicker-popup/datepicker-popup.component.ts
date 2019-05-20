@@ -63,7 +63,6 @@ export class NgbDateFRParserFormatter extends NgbDateParserFormatter {
 }
 }
 
-// Define custom service providing the months and weekdays translations
 @Injectable()
 export class CustomDatepickerI18n extends NgbDatepickerI18n {
 
