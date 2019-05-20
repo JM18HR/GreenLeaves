@@ -1,0 +1,8 @@
+<div [formGroup]="parenteform" class="input-group">
+  <input style="width:260px; height: 30px;" type="text" formControlName="{{formcontrolname}}"
+    name="dp" [displayMonths]="displayMonths" [navigation]="navigation" [outsideDays]="outsideDays"
+    [showWeekNumbers]="showWeekNumbers" required ngbDatepicker #d="ngbDatepicker" [minDate]="new_year" [maxDate]="new_today">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+  </div>
+</div>

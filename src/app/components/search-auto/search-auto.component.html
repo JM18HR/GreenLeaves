@@ -1,0 +1,5 @@
+<div [formGroup]="parenteform">
+    <input style="width: 300px;height: 30px;" formControlName="{{formcontrolname}}" id="typeahead-http" type="text"
+        name="ciudad" [class.is-invalid]="searchFailed" [ngbTypeahead]="search" placeholder="Buscar ciudad.." />
+
+</div>

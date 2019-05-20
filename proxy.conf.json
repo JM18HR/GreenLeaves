@@ -1,0 +1,7 @@
+{
+  "/*": {
+  "target": "http://api.geonames.org",
+  "secure": false,
+  "changeOrigin": true
+  }
+}

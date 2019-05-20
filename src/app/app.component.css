@@ -1,0 +1,117 @@
+.title{
+    position: relative;
+    width: 50%;
+    height: 100px;
+    margin: 0px auto;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+    background-image: linear-gradient(rgb(0, 209, 80),rgb(13, 148, 65));    
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.title > h1{
+    margin: 10px;
+    float: left;
+    font-size: 70px;
+    color: white;
+}
+.hoja{
+    width: 85px;
+    height: 70px;
+    float: right;
+    margin: 10px;
+}
+
+.form-angular{
+    width: 40%;
+    height: auto;
+    margin: 0px auto;
+    margin-top: 30px;
+}
+
+
+.g-controls{
+    width: auto;
+    height: 30px;
+    background-color:#FFFFFF;
+    margin: 5px;
+}
+.g-controls>label{
+    font-size: 20px;
+}
+
+.control{
+    float: right;
+}
+
+.control>input{
+    width: 300px;
+    height: 30px;
+}
+.send-form{
+    width: 100px;
+    height: 40px;
+    background-image: linear-gradient(rgb(0, 209, 80),rgb(13, 148, 65)); 
+    border: 0px;
+    float: right;
+    color: white;
+    font-size: 16px;
+}
+.modal-header{
+    text-align: center;
+    color: white;
+    background-image: linear-gradient(rgb(0, 209, 80),rgb(13, 148, 65));
+}
+
+.search-bar {
+    min-width: 348px;
+    text-indent: 30px !important;
+    box-sizing: border-box;
+}
+
+.search-drop-down {
+    position: absolute;
+    width: 50%;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    background-color: #F6F6F6;
+    font-family: sans-serif;
+    opacity: 0.98;
+}
+
+.search-results {
+    padding: 10px;
+}
+
+.search-results:hover {
+    background: #707070;
+}
+
+.color-purple {
+    color: #A550BC;
+}
+
+.negritas{
+    font-weight:bold;
+}
+
+.derecha{
+    float: right;
+}
+
+.green{
+    color: green;
+    font-size: 18;
+    font-weight:bold;
+}
+
+input.ng-invalid {
+   border-color: pink;
+  }
+  input.ng-valid {
+    background-color: lightgreen;
+  }

@@ -1,0 +1,119 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="title">
+  <h1>Green Leaves</h1>
+  <img src="https://cdn.pixabay.com/photo/2015/04/23/10/52/leaf-735878_960_720.png" class="hoja">
+</div>
+
+<form [hidden]="success" [formGroup]="formRegister" class="form-angular" (ngSubmit)="onSubmit(content)">
+  <div class="g-controls">
+    <label for="">Nombre</label>
+    <div class="control">
+      <input type="text" formControlName="nombre" required />
+    </div>
+  </div>
+
+  <div class="g-controls">
+    <label for="">E-mail</label>
+    <div class="control">
+      <input type="email" formControlName="email" required />
+    </div>
+  </div>
+  <div class="g-controls">
+    <label for="">Telefono</label>
+    <div class="control">
+      <input type="text" formControlName="telefono" required />
+    </div>
+  </div>
+  <div class="g-controls">
+    <label for="">Fecha</label>
+    <div class="control">
+      <ngbd-datepicker-popup [parenteform]="formRegister" [formcontrolname]="'fecha'"></ngbd-datepicker-popup>
+    </div>
+  </div>
+  <div class="g-controls">
+    <label for="">Ciudad y Estado</label>
+    <div class="control">
+      <app-search-auto [parenteform]="formRegister" [formcontrolname]="'ciudad'"></app-search-auto>
+    </div>
+  </div>
+  <div class="g-controls">
+    <app-recaptcha></app-recaptcha>
+  </div>
+  <div class="g-controls">
+    <input class="send-form" type="submit" value="Enviar" />
+  </div>
+</form>
+
+
+<div [hidden]="realizado" class="form-angular">
+  <h4>Estimado <span class="negritas">{{formRegister.value.nombre}}</span>,</h4>
+  <p>Hemos recibido sus datos y nos pondremos en contacto con usted en la brevedad posible. Enviaremos un correo con
+    información a su cuenta: <span class="negritas">{{formRegister.value.email}}</span>.</p>
+  <div class="derecha">
+    <h5>Atte.</h5>
+    <h5 class="green">Green Leaves</h5>
+    <h6>{{formRegister.value.ciudad}} a {{fecha}}</h6>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Contacto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Se encontraron los siguientes errores en sus datos de contacto:</p>
+    <div *ngIf="!formRegister.valid" class="alert alert-danger">
+        <div>
+           Faltan datos
+          </div>
+      </div>
+    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+      <div *ngIf="nombre.errors.required ">
+        campo nombre es requerido
+      </div>
+      <div *ngIf="formRegister.get('nombre').hasError('minlength')">
+        Nombre no valido
+      </div>
+    </div>
+
+    <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+      <div *ngIf="telefono.errors.required ">
+        campo Telefono es requerido
+      </div>
+      <div *ngIf="telefono.errors.pattern">
+        Numero de telefono no valido
+      </div>
+    </div>
+
+    <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger">
+      <div *ngIf="correo.errors.required">
+        campo correo es requerido
+      </div>
+      <div *ngIf="correo.errors.pattern">
+        correo no valido
+      </div>
+    </div>
+
+    <div *ngIf="fecha_sel.invalid && (fecha_sel.dirty || fecha_sel.touched)" class="alert alert-danger">
+      <div *ngIf="fecha_sel.errors.required">
+        campo fecha es requerido
+      </div>
+    </div>
+
+    <div *ngIf="ciudad.invalid && (ciudad.dirty || ciudad.touched)" class="alert alert-danger">
+      <div *ngIf="ciudad.errors.required">
+        campo ciudad es requerido
+      </div>
+      <div *ngIf="formRegister.get('ciudad').hasError('minlength')">
+        Direccion no no valida
+        </div>
+    </div>
+    <p>Por favor corriga los errores para continuar</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" ngbAutofocus class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
+  </div>
+</ng-template>
